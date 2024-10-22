@@ -1,0 +1,19 @@
+<table class="table table-striped" *ngIf="veterinarios$ | async as veterinarios">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Dni</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let veterinario of veterinarios">
+      <td>{{ veterinario.nombre }}</td>
+      <td>{{ veterinario.dni }}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="seleccionarActor(veterinario)">Seleccionar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+

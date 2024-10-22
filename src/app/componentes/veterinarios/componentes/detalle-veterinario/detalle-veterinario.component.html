@@ -1,0 +1,38 @@
+<div *ngIf="veterinarioSeleccionado">
+    <table class="table table-striped">
+      <tr>
+        <td><strong>Nombre:</strong></td>
+        <td>{{ veterinarioSeleccionado.nombre }}</td>
+      </tr>
+      <tr>
+        <td><strong>Documento:</strong></td>
+        <td>{{ veterinarioSeleccionado.dni }}</td>
+      </tr>
+      <tr>
+        <td><strong>Edad:</strong></td>
+        <td>{{ veterinarioSeleccionado.edad }}</td>
+      </tr>
+      <tr>
+        <td><strong>Matricula:</strong></td>
+        <td>{{ veterinarioSeleccionado.matricula }}</td>
+      </tr>
+      <tr>
+        <td><strong>Va a domicilio:</strong></td>
+        @if(veterinarioSeleccionado.atiendeDomicilio){
+          <td>Si</td>
+        }
+        @else{
+          <td>No</td>
+        }
+      </tr>
+      <tr>
+        <td><strong>Pais:</strong></td>
+        <td>{{ veterinarioSeleccionado.nacionalidad }}</td>
+      </tr>
+      <!-- Add more actor fields as needed -->
+    </table>
+  </div>
+  <div *ngIf="!veterinarioSeleccionado">
+    <p>No veterinario seleccionado.</p>
+  </div>
+  

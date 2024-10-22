@@ -21,6 +21,10 @@
             </li>
 
             <li class="nav-item" *ngIf="auth.currentUser?.email">
+              <a class="nav-link" aria-current="page" routerLink="Veterinarios" routerLinkActive="active-route">Veterinarios</a>
+            </li>
+
+            <li class="nav-item" *ngIf="auth.currentUser?.email">
               <a class="nav-link" aria-current="page" routerLink="Vehiculos" routerLinkActive="active-route">Vehiculos</a>
             </li>
 

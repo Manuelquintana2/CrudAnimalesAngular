@@ -32,7 +32,7 @@ export class VeterinariosService {
     }
   }
 
-  getChoferes(): Observable<Veterinario[]> {
+  getVeterinarios(): Observable<Veterinario[]> {
     return collectionData(this.veterinarioCollection, { idField: 'id' }) as Observable<Veterinario[]>;
   }
 }
