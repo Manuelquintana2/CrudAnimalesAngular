@@ -1,0 +1,90 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Color de fondo de la página */
+  }
+  
+  /* Imagen de fondo */
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    position: fixed; /* Cambiado a fixed para que ocupe toda la ventana */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Para que la imagen esté detrás del contenido */
+  }
+  
+  /* Módulo del formulario */
+  .module {
+    position: relative;
+    width: 400px;
+    margin: 100px auto; /* Centrar vertical y horizontalmente */
+    padding: 20px;
+    background-color: white; /* Color de fondo del formulario */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Toggle */
+  .toggle {
+    cursor: pointer;
+    text-align: right;
+  }
+  
+  .toggle i {
+    font-size: 24px;
+  }
+  
+  /* Formulario */
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form h2 {
+    margin-bottom: 20px;
+    color: #333; /* Color del título */
+    text-align: center; /* Centrar el título */
+  }
+  
+  .form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Transición suave para el borde */
+  }
+  
+  .form input:focus {
+    border-color: #4CAF50; /* Color del borde al enfocar */
+    outline: none; /* Quitar el contorno predeterminado */
+  }
+  
+  .form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50; /* Color del botón */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+  }
+  
+  .form button:hover {
+    background-color: #45a049; /* Color del botón al pasar el ratón */
+  }
+  
+  /* Mensaje de error */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center; /* Centrar el mensaje de error */
+  }
+  

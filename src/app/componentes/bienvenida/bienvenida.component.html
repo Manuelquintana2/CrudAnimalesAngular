@@ -1,0 +1,12 @@
+<div class="bienvenida-container">
+    <h1>¡Bienvenido, el creador de esta pagina es: {{ datos.nombreUsuario }}!</h1>
+    <div class="user-info">
+      <img [src]="datos.imagen" alt="{{ datos.nombre }}" class="user-image" />
+      <div class="details">
+        <h2>{{ datos.nombre }}</h2>
+        <p><strong>Localidad:</strong> {{ datos.localidad }}</p>
+        <p><strong>Repositorios Públicos:</strong> {{ datos.cantidadRepos }}</p>
+      </div>
+    </div>
+  </div>
+  

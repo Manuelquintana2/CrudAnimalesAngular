@@ -1,0 +1,17 @@
+<div class="background-image"></div>
+<div class="module form-module">
+  <div class="toggle">
+    <i class="fa fa-times fa-pencil"></i>
+  </div>
+  <div class="form">
+    <h2>Ingresa a tu cuenta</h2>
+    <input type="text" placeholder="Email" id="txtEmail" [(ngModel)]="email">
+    <input type="password" placeholder="Contraseña" id="txtContraseña" [(ngModel)]="password"> 
+    <button (click)="login()">Login</button>
+    <button (click)="AutoCompletarAdmin()">Autocompletar admin</button>
+    <button (click)="AutoCompletarEmpleado()">Autocompletar empleado</button>
+    @if(exito != true){
+      <div class="error-message">{{ error }}</div>
+    }
+  </div>
+</div>

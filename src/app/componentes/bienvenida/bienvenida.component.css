@@ -1,0 +1,36 @@
+.bienvenida-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    }
+    
+    .user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #4CAF50; /* Color del borde */
+    }
+    
+    .details {
+    text-align: left;
+    }
+    
+    h1 {
+    color: #4CAF50; /* Color del título */
+    }
+    
+    p {
+    font-size: 16px;
+    color: #333; /* Color del texto */
+    }
+      

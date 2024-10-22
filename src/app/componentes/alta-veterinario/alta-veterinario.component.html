@@ -1,0 +1,84 @@
+<div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h2>Alta Veterinario</h2>
+        <p class="lead">Veterinario.</p>
+      </div>
+  
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">Seleccionar nacionalidad</span>
+          </h4>
+  
+          <div class="scrollable-table">
+            <app-listado-paises (paisSeleccionado)="alSeleccionarUnPais($event)"> </app-listado-paises>
+          </div>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Formulario de alta veterinario</h4>
+          <form [formGroup]="form" (ngSubmit)="altaVeterinario()" class="needs-validation">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" formControlName="nombre">
+                <div *ngIf="form.get('nombre')?.invalid && (form.get('nombre')?.touched || form.get('nombre')?.dirty)">
+                  <div *ngIf="form.get('nombre')?.errors?.['required']">El nombre es requerido.</div>
+                  <div *ngIf="form.get('nombre')?.errors?.['pattern']">El nombre solo puede contener letras y espacios.</div>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dni" formControlName="dni">
+                <div *ngIf="form.get('dni')?.invalid && (form.get('dni')?.touched || form.get('dni')?.dirty)">
+                  <div *ngIf="form.get('dni')?.errors?.['required']">El DNI es requerido.</div>
+                  <div *ngIf="form.get('dni')?.errors?.['pattern']">El DNI debe contener exactamente 8 dígitos.</div>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" formControlName="edad">
+                <div *ngIf="form.get('edad')?.invalid && (form.get('edad')?.touched || form.get('edad')?.dirty)">
+                  <div *ngIf="form.get('edad')?.errors?.['required']">La edad es requerida.</div>
+                  <div *ngIf="form.get('edad')?.errors?.['min']">Debes tener al menos 21 años.</div>
+                  <div *ngIf="form.get('edad')?.errors?.['max']">La edad no puede ser mayor a 65 años.</div>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="matricula" class="form-label">Matricula</label>
+                <input type="text" class="form-control" id="matricula" formControlName="matricula">
+                <div *ngIf="form.get('matricula')?.invalid && (form.get('matricula')?.touched || form.get('matricula')?.dirty)">
+                  <div *ngIf="form.get('matricula')?.errors?.['required']">la matricula es requerida.</div>
+                  <div *ngIf="form.get('matricula')?.errors?.['pattern']">la matricula debe contener al menos 6 dígitos.</div>
+                </div>
+              </div>
+  
+              <div class="col-12">
+                <div>
+                  <label>
+                    <input type="checkbox" formControlName="atiendeDomicilio"> Atiende a domicilio
+                  </label>
+                  <div *ngIf="form.get('atiendeDomicilio')?.invalid && (form.get('atiendeDomicilio')?.touched || form.get('atiendeDomicilio')?.dirty)">
+                    <div class="error-message">requerido</div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                <input type="text" disabled class="form-control" id="nacionalidad" [value]="nacionalidad" placeholder="">
+              </div>
+            </div>
+  
+            <hr class="my-4">
+  
+            <button type="submit" class="w-100 btn btn-primary btn-lg" [disabled]="form.invalid">Agregar veterinario</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  

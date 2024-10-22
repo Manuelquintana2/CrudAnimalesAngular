@@ -1,0 +1,64 @@
+.active-route {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .navbar-nav .nav-link {
+    cursor: pointer;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .navbar {
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-light .navbar-nav {
+    display: flex; /* Mantiene los elementos en una fila */
+    flex-direction: row; /* Asegura que estén en horizontal */
+    justify-content: center; /* Centra los elementos horizontalmente */
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+    color: #333;
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-link.active-route {
+    background-color: #e2e6ea;
+    color: #007bff;
+    border-radius: 5px;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #007bff; /* Cambia el color del icono de toggler */
+  }
+  
+  .collapse {
+    display: flex; /* Asegura que la barra colapsada mantenga disposición horizontal */
+    justify-content: center; /* Centra el contenido */
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: row; /* Mantiene los enlaces en fila en pantallas pequeñas */
+    }
+  
+    .nav-link {
+        text-align: center; /* Centra los enlaces */
+    }
+  }
