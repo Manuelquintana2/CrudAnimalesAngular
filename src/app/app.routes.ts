@@ -4,6 +4,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { AltaVeterinarioComponent } from './componentes/alta-veterinario/alta-veterinario.component';
 import { Veterinario } from './clases/Veterinario';
 import { VeterinariosComponent } from './componentes/veterinarios/veterinarios.component';
+import { AnimalesComponent } from './componentes/animales/animales.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/Bienvenida', pathMatch: "full" },
@@ -11,5 +12,5 @@ export const routes: Routes = [
     { path: 'Login', component: LoginComponent },
     { path: 'AltaVeterinario', component: AltaVeterinarioComponent},
     { path: 'Veterinarios', component: VeterinariosComponent },
-    // { path: 'Vehiculos', component: VehiculosComponent },
+    { path: 'Animales', component: AnimalesComponent },
 ];

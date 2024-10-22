@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <table class="table table-striped" *ngIf="animales$ | async as animales">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let animal of animales">
+
+        <td>{{ animal.nombre }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="verDetalles(animal)">Seleccionar</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+

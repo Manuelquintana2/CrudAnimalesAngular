@@ -1,0 +1,46 @@
+<div class="container">
+    <h4 class="mb-3">Modificar animal</h4>
+    <form [formGroup]="form" (ngSubmit)="modificarVehiculo()" class="needs-validation">
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" [value]="animal.nombre" disabled>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="tipo" class="form-label">Tipo</label>
+          <select class="form-control" id="tipo" formControlName="tipo">
+            <option value="" disabled>Seleccione un tipo</option>
+            <option *ngFor="let tipo of tiposAnimal" [value]="tipo">{{ tipo }}</option>
+          </select>
+          <div *ngIf="form.get('tipo')?.invalid && (form.get('tipo')?.touched || form.get('tipo')?.dirty)">
+            <div *ngIf="form.get('tipo')?.errors?.['required']">El tipo es requerido.</div>
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="cantidadDePatas" class="form-label">cantidad de patas</label>
+          <input type="number" class="form-control" id="cantidadDePatas" formControlName="cantidadDePatas">
+          <div *ngIf="form.get('cantidadDePatas')?.invalid && (form.get('cantidadDePatas')?.touched || form.get('cantidadDePatas')?.dirty)">
+            <div *ngIf="form.get('cantidadDePatas')?.errors?.['required']">La cantidad de patas es requerida.</div>
+            <div *ngIf="form.get('cantidadDePatas')?.errors?.['max']">La cantidad máxima de patas es 4.</div>
+            <div *ngIf="form.get('cantidadDePatas')?.errors?.['pattern']">Solo se permiten números.</div>
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="pesoPromedio" class="form-label">peso Promedio</label>
+          <input type="number" class="form-control" id="pesoPromedio" formControlName="pesoPromedio">
+          <div *ngIf="form.get('pesoPromedio')?.invalid && (form.get('pesoPromedio')?.touched || form.get('pesoPromedio')?.dirty)">
+            <div *ngIf="form.get('pesoPromedio')?.errors?.['required']"> El peso promedio es requerida.</div>
+            <div *ngIf="form.get('pesoPromedio')?.errors?.['min']">El peso mínimo es 5.</div>
+            <div *ngIf="form.get('pesoPromedio')?.errors?.['max']">El peso máxima es 50.</div>
+            <div *ngIf="form.get('pesoPromedio')?.errors?.['pattern']">Solo se permiten números.</div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <button type="submit" class="w-100 btn btn-primary btn-lg" [disabled]="form.invalid">Modificar</button>
+    </form>
+  </div>
+  
