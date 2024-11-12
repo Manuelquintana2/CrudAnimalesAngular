@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { Animal } from '../../../../clases/Animal';
 import { AnimalesService } from '../../../../servicios/animales.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -47,14 +48,22 @@ export class AltaAnimalesComponent {
         this.form.value.cantidadDePatas,
         this.form.value.pesoPromedio
       );
-
       try {
         await this.animalService.altaAnimal(nuevoAnimal);
         this.animalCreado.emit(nuevoAnimal);
+        this.showSuccessAlert('Animal creado exitosamente');
         this.form.reset();
       } catch (error) {
         console.error('Error al crear el animal:', error);
       }
     }
+  }
+  private showSuccessAlert(message: string) {
+    return Swal.fire({
+      title: 'Exito',
+      text: message,
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
   }
 }

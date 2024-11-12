@@ -25,7 +25,7 @@
             <h4 class="my-0 fw-normal">Modif Animal</h4>
           </div>
           <div class="card-body">
-            <!-- <app-modificacion-animal [animal]="animalSeleccionado"></app-modificacion-animal> -->
+            <app-modificacion-animal [animal]="animalSeleccionado"></app-modificacion-animal>
           </div>
         </div>
       </div>
@@ -35,8 +35,7 @@
             <h4 class="my-0 fw-normal">Baja Animal</h4>
           </div>
           <div class="card-body">
-            <app-baja-animales></app-baja-animales>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Eliminar</button>
+            <app-baja-animales [animal]="animalSeleccionado"></app-baja-animales>
           </div>
         </div>
       </div>

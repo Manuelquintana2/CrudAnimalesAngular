@@ -1,1 +1,30 @@
-<p>baja-animales works!</p>
+<div class="container">
+    <h4 class="mb-3">Eliminar Vehículo</h4>
+    <form [formGroup]="form" (ngSubmit)="eliminarAnimal()" class="needs-validation">
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" [value]="animal.nombre" disabled>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="tipo" class="form-label">Tipo</label>
+          <input type="text" class="form-control" id="tipo" [value]="animal.tipo" disabled>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="cantidadDePatas" class="form-label">Cantidad de patas</label>
+          <input type="number" class="form-control" id="cantidadDePatas" [value]="animal.cantidadDePatas" disabled>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="pesoPromedio" class="form-label">Peso Promedio</label>
+          <input type="number" class="form-control" id="pesoPromedio" [value]="animal.pesoPromedio" disabled>
+        </div>
+      </div>
+      <hr class="my-4">
+      <button type="submit" class="w-100 btn btn-danger btn-lg">Eliminar</button>
+    </form>
+  </div>
+  
+

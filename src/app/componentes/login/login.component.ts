@@ -3,6 +3,7 @@ import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../servicios/firebase.service';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginComponent {
         let col = collection(this.firestore, "logins");
         let obj = {fecha : new Date(), "user": this.email}
         addDoc(col, obj);
+        this.showSuccessAlert("Logueado exitosamente");
         this.router.navigate(['/Bienvenida']);
       });
     }catch(e:any){
@@ -65,5 +67,13 @@ export class LoginComponent {
   }
   volverAlHome(){
     this.router.navigate(['/Bienvenida']);
+  }
+  private showSuccessAlert(message: string) {
+    return Swal.fire({
+      title: 'Exito',
+      text: message,
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
   }
 }

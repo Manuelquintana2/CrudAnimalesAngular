@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Animal } from '../../../../clases/Animal';
 import { AnimalesService } from '../../../../servicios/animales.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -55,11 +56,21 @@ export class ModificacionAnimalComponent {
         this.form.value.pesoPromedio
       );
       try {
-        await this.animalService.actualizarAnimal(this.animal.nombre, animalModificado);
+        await this.animalService.actualizarAnimal(this.animal.id!, animalModificado);
         this.animalModificado.emit(animalModificado);
+        this.showSuccessAlert("Animal modificado exitosamente")
+        this.form.reset();
       } catch (error) {
         console.error('Error al modificar el vehículo:', error);
       }
     }
+  }
+  private showSuccessAlert(message: string) {
+    return Swal.fire({
+      title: 'Exito',
+      text: message,
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
   }
 }

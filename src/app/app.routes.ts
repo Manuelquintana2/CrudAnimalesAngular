@@ -5,12 +5,31 @@ import { AltaVeterinarioComponent } from './componentes/alta-veterinario/alta-ve
 import { Veterinario } from './clases/Veterinario';
 import { VeterinariosComponent } from './componentes/veterinarios/veterinarios.component';
 import { AnimalesComponent } from './componentes/animales/animales.component';
+import { crudAnimalesGuard } from './guards/crud-animales.guard';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/Bienvenida', pathMatch: "full" },
-    { path: 'Bienvenida', component: BienvenidaComponent },
-    { path: 'Login', component: LoginComponent },
-    { path: 'AltaVeterinario', component: AltaVeterinarioComponent},
-    { path: 'Veterinarios', component: VeterinariosComponent },
-    { path: 'Animales', component: AnimalesComponent },
+    { 
+        path: '',loadComponent: () => import('./componentes/bienvenida/bienvenida.component')
+        .then(c => c.BienvenidaComponent), pathMatch: "full"
+    },
+    {
+        path: 'Bienvenida', loadComponent: () => import('./componentes/bienvenida/bienvenida.component')
+          .then(c => c.BienvenidaComponent)
+    },
+    { 
+        path: 'Login', loadComponent: () =>import('./componentes/login/login.component')
+        .then(c=>c.LoginComponent)
+    },
+    {
+        path: 'AltaVeterinario', loadComponent: () => import('./componentes/alta-veterinario/alta-veterinario.component')
+          .then(c => c.AltaVeterinarioComponent)
+    },
+    {
+        path: 'Veterinarios', loadComponent: () => import('./componentes/veterinarios/veterinarios.component')
+          .then(c => c.VeterinariosComponent)
+    },
+    {
+        path: 'Animales', loadComponent: () => import('./componentes//animales/animales.component')
+          .then(c => c.AnimalesComponent)
+    },
 ];

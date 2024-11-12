@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, collectionData, CollectionReference, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, CollectionReference, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
 import { Animal } from '../clases/Animal';
 import { Observable } from 'rxjs';
 
@@ -21,23 +21,31 @@ export class AnimalesService {
       await addDoc(this.animalesCollection, {
         nombre: animal.nombre,
         tipo : animal.tipo,
-        cantidadPatas: animal.cantidadDePatas,
+        cantidadDePatas: animal.cantidadDePatas,
         pesoPromedio: animal.pesoPromedio
       });
-
     } catch (error) {
       throw error;
     }
   }
 
   async actualizarAnimal(id: string, animal: Animal): Promise<void> {
-    const animalDoc = doc(this.firestore, `animal/${id}`);
+    const animalDoc = doc(this.firestore, `animales/${id}`);
     try {
       await updateDoc(animalDoc, {
         tipo: animal.tipo,
-        cantidadRuedas: animal.cantidadDePatas,
-        capacidadPromedio: animal.pesoPromedio
+        cantidadDePatas: animal.cantidadDePatas,
+        pesoPromedio: animal.pesoPromedio
       });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async eliminarAnimal(id: string): Promise<void> {
+    const vehiculoDoc = doc(this.firestore, `animales/${id}`);
+    try {
+      await deleteDoc(vehiculoDoc);
     } catch (error) {
       throw error;
     }
