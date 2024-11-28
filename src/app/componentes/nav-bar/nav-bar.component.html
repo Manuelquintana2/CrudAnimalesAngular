@@ -20,11 +20,11 @@
               <a class="nav-link" aria-current="page" routerLink="AltaVeterinario" routerLinkActive="active-route">Alta Veterinario</a>
             </li>
 
-            <li class="nav-item" *ngIf="!auth.currentUser?.email">
+            <li class="nav-item">
               <a class="nav-link" aria-current="page" routerLink="Veterinarios" routerLinkActive="active-route">Veterinarios</a>
             </li>
 
-            <li class="nav-item" *ngIf="!auth.currentUser?.email">
+            <li class="nav-item" *ngIf="auth.currentUser?.email">
               <a class="nav-link" aria-current="page" routerLink="Animales" routerLinkActive="active-route">Animales</a>
             </li>
 

@@ -30,6 +30,7 @@ export const routes: Routes = [
     },
     {
         path: 'Animales', loadComponent: () => import('./componentes//animales/animales.component')
-          .then(c => c.AnimalesComponent)
+          .then(c => c.AnimalesComponent),
+          canActivate : [crudAnimalesGuard]
     },
 ];
